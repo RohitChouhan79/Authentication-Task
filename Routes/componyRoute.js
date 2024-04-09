@@ -6,7 +6,7 @@ const router=express.Router();
 router.get("/componys",isAuthenticated, componys)
 
 // Post  /Addcompony/:Outlateid
-router.post("/Addcompony/:id",AddCompony)
+router.post("/Addcompony/:id",isAuthenticated,AddCompony)
 
 // post /updateCompony/:componyid
 router.post("/updateCompony/:id",isAuthenticated,UpdateCompony)

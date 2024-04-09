@@ -5,7 +5,7 @@ const router=express.Router();
 
 router.post("/currentUser",isAuthenticated, currentUser)
 
-router.get('/Alluser',AllUser)
+router.get('/Alluser',isAuthenticated,AllUser)
 
 // Post /user/Signup
 router.post("/signup",AdminSignup)

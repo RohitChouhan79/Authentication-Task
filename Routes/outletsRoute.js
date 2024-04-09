@@ -6,7 +6,7 @@ const router=express.Router();
 router.get("/Outlets",isAuthenticated,outlets)
 
 // // Post /Addoutlate/:userid 
-router.post("/Addoutlate/:id",Addoutlate)
+router.post("/Addoutlate/:id",isAuthenticated,Addoutlate)
 
 // // post /updateoutlate/:outlateid
 router.post("/updateoutlate/:id",isAuthenticated,Updateoutlate)
