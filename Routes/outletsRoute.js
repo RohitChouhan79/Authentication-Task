@@ -3,7 +3,7 @@ const { Addoutlate,outlets,Updateoutlate,deleteoutlate } = require("../Controlle
 const { isAuthenticated } = require("../Middleware/Auth");
 const router=express.Router();
 
-router.post("/outlets",isAuthenticated,outlets)
+router.get("/Outlets",isAuthenticated,outlets)
 
 // // Post /Addoutlate/:userid 
 router.post("/Addoutlate/:id",Addoutlate)

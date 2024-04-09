@@ -7,16 +7,22 @@ const Outlets = require("../Models/outletModel");
 
 
 exports.componys=catchAsyncError(async(req,res,next)=>{
-    const company= await Compony.findById(req.id).exec()
-    res.json({company});
+    try {
+        const companies = await Compony.find().populate('outlets').exec();
+        res.json({ companies, message: "Successfully fetched company data" });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'An error occurred while fetching company data' });
+    }
 })
 
 exports.AddCompony=catchAsyncError(async (req,res,next)=>{
     const compony= await new Compony(req.body).save();
     const outlate = await Outlets.findById(req.params.id)
-    compony.outlets=outlate._id
+
+    compony.outlets=outlate
     compony.save()
-    res.send({message:"Compony added Succesfully",outlate:outlate,compony:compony })
+    res.send({message:"Compony added Succesfully"})
 })
 
 

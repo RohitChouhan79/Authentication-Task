@@ -3,7 +3,7 @@ const { AddCompony,componys,UpdateCompony,deleteCompony } = require("../Controll
 const { isAuthenticated } = require("../Middleware/Auth");
 const router=express.Router();
 
-router.post("/componys",isAuthenticated, componys)
+router.get("/componys",isAuthenticated, componys)
 
 // Post  /Addcompony/:Outlateid
 router.post("/Addcompony/:id",AddCompony)

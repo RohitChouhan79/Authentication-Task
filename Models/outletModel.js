@@ -11,7 +11,7 @@ const outletModel=new mongoose.Schema({
     outletDestination:{
         type:String
     },
-    user:[{type:mongoose.Schema.Types.ObjectId,ref:"User"}],
+    user:[{type:mongoose.Schema.Types.ObjectId,ref:"user"}],
 },{timestamps:true})
 
 
