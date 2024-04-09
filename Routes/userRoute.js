@@ -1,9 +1,11 @@
 const express=require("express");
-const { currentUser,AdminSignup,Adminsignin,Adminsignout,Adminupdate,Admindelete } = require("../Controller/userController");
+const { currentUser,AdminSignup,Adminsignin,Adminsignout,Adminupdate,Admindelete,AllUser } = require("../Controller/userController");
 const { isAuthenticated } = require("../Middleware/Auth");
 const router=express.Router();
 
 router.post("/currentUser",isAuthenticated, currentUser)
+
+router.get('/Alluser',AllUser)
 
 // Post /user/Signup
 router.post("/signup",AdminSignup)

@@ -10,6 +10,16 @@ exports.currentUser=catchAsyncError(async(req,res,next)=>{
     res.json({user});
 })
 
+exports.AllUser = catchAsyncError(async (req, res, next) => {
+    try {
+        const users = await USER.find().exec();
+        res.json({ users });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'An error occurred while fetching user data' });
+    }
+});
+
 exports.AdminSignup=catchAsyncError(async (req,res,next)=>{
     const user= await new USER(req.body).save();
     sendtokens(user,200,res)
